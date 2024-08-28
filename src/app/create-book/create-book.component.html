@@ -1,0 +1,65 @@
+<div class="container col-md-6 col-lg-4 col-10 mt-4">
+  <h2>Create Book</h2>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        placeholder="Enter book name"
+        [(ngModel)]="book.name"
+        name="name"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="type" class="form-label">Type</label>
+      <select
+        class="form-select"
+        id="type"
+        [(ngModel)]="book.type"
+        name="type"
+        required
+      >
+        <option value="English">English</option>
+        <option value="DSA">DSA</option>
+        <option value="SQL">SQL</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="author" class="form-label">Author</label>
+      <input
+        type="text"
+        class="form-control"
+        id="author"
+        placeholder="Enter author name"
+        [(ngModel)]="book.author"
+        name="author"
+        required
+      />
+    </div>
+
+    <div class="form-check mb-3">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="locked"
+        [(ngModel)]="book.locked"
+        name="locked"
+      />
+      <label class="form-check-label" for="locked">Locked</label>
+    </div>
+
+    <div class="text-end">
+      <button type="submit" class="btn btn-primary me-2">Submit</button>
+      <button class="btn btn-secondary" routerLink="/books">
+        <i class="pi pi-undo"></i>
+        Back
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,67 @@
+<div class="container col-md-6 col-lg-4 col-10 mt-4">
+  <h2>View Book</h2>
+
+  <form>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        [value]="book.name"
+        readonly
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="name" class="form-label">Type</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        [value]="book.type"
+        readonly
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="author" class="form-label">Author</label>
+      <input
+        type="text"
+        class="form-control"
+        id="author"
+        [value]="book.author"
+        readonly
+      />
+    </div>
+
+    <div class="form-check mb-3">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="locked"
+        [checked]="book.locked"
+        disabled
+      />
+      <label class="form-check-label" for="locked">Locked</label>
+    </div>
+
+    <div class="mt-4 text-end">
+      <button
+        class="btn btn-warning me-2"
+        routerLink="/books/update/{{ book.id }}"
+      >
+        <i class="pi pi-pencil"></i>
+        Update
+      </button>
+      <button class="btn btn-danger me-2" (click)="onDelete(book.id)">
+        <i class="pi pi-trash"></i>
+        Delete
+      </button>
+      <button class="btn btn-secondary" routerLink="/books">
+        <i class="pi pi-undo"></i>
+        Back
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,56 @@
+<div class="container col-lg-10 col-12 mt-4">
+  <div class="mb-3 text-end">
+    <button class="btn btn-primary me-2" routerLink="/books/create">
+      <i class="pi pi-plus"></i>
+      Create Book
+    </button>
+    <button class="btn btn-secondary" (click)="ngOnInit()">
+      <i class="pi pi-refresh"></i>
+      Reload
+    </button>
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="col-1">ID</th>
+        <th>Name</th>
+        <th class="col-2">Type</th>
+        <th class="col-2">Author</th>
+        <th class="col-1">Locked</th>
+        <th class="col-3">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{ book.id }}</td>
+        <td>{{ book.name }}</td>
+        <td>{{ book.type }}</td>
+        <td>{{ book.author }}</td>
+        <td>
+          <input type="checkbox" [checked]="book.locked" disabled />
+        </td>
+        <td>
+          <button
+            class="btn btn-info btn-sm me-2"
+            routerLink="/books/view/{{ book.id }}"
+          >
+            <i class="pi pi-eye"></i>
+            View
+          </button>
+          <button
+            class="btn btn-warning btn-sm me-2"
+            routerLink="/books/update/{{ book.id }}"
+          >
+            <i class="pi pi-pencil"></i>
+            Update
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="onDelete(book.id)">
+            <i class="pi pi-trash"></i>
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
